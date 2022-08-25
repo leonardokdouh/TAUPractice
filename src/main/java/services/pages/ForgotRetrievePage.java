@@ -13,6 +13,8 @@ public class ForgotRetrievePage {
     }
 
     public String getText(){
+        System.out.println("Asdasdasd");
+
         return driver.findElement(textPage).getText();
     }
 
