@@ -50,5 +50,20 @@ public class HomePage {
         return new SliderPage(driver);
     }
 
+    public JsAlerts clickJsAlerts(){
+        clickWithXpath("//a[@href=\"/javascript_alerts\"]");
+        return new JsAlerts(driver);
+    }
+
+    public ContextMenuPage clickContextMenu(){
+        driver.findElement(By.cssSelector("a[href=\"/context_menu\"]")).click();
+        return new ContextMenuPage(driver);
+    }
+
+    public WYSPage clickWys(){
+        driver.findElement(By.cssSelector("a[href=\"/tinymce\"]")).click();
+        return new WYSPage(driver);
+    }
+
 
 }
