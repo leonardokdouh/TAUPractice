@@ -35,7 +35,11 @@ public class HomePage {
         driver.findElement(By.linkText(text)).click();
     }
 
-    public void clickWithXpath(String text){
+    private void clickWithCss(String text){
+        driver.findElement(By.cssSelector(text)).click();
+    }
+
+    private void clickWithXpath(String text){
         driver.findElement(new By.ByXPath(text)).click();
     }
 
@@ -65,5 +69,31 @@ public class HomePage {
         return new WYSPage(driver);
     }
 
+    public DynamicLoadingPage clickDynamicLoading(){
+        clickWithXpath("//a[@href='/dynamic_loading']");
+        return new DynamicLoadingPage(driver);
+    }
+
+    public EntryAdPage clickEntryAdPage(){
+        driver.findElement(By.xpath("//a[@href='/entry_ad']")).click();
+        return new EntryAdPage(driver);
+    }
+
+    public LargeAndDeepPage clickLargeAndDeepPage(){
+             clickWithCss("a[href='/large']");
+                return new LargeAndDeepPage(driver);
+
+    }
+
+    public InfiniteScrollPage clickInfinitePage (){
+        clickWithCss("a[href='/infinite_scroll']");
+        return new InfiniteScrollPage(driver);
+    }
+
+    public MultipleWindowsPage clickMultipleWindows(){
+        clickWithCss("a[href='/windows']");
+        return new MultipleWindowsPage(driver);
+
+    }
 
 }

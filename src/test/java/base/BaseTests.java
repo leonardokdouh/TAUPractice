@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import services.pages.HomePage;
+import utils.WindowManager;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
 
@@ -20,14 +23,26 @@ public class BaseTests {
 
         driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/");
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       goHome();
+    }
+
+    @BeforeMethod
+    public void goHome(){
+
+        driver.get("http://the-internet.herokuapp.com/");
         homePage = new HomePage(driver);
     }
 
-   // @AfterClass
+    //@AfterClass
     public void tearDown(){
         driver.quit();
     }
 
+
+    public WindowManager getWindowManager(){
+        return new WindowManager(driver);
+    }
 
     //  public void shiftingContent(){
 //        driver = new ChromeDriver();

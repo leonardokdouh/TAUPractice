@@ -8,6 +8,7 @@ public class WYSPage {
     private WebDriver driver;
     private By textArea = By.id("tinymce");
     private String frame = "mce_0_ifr";
+    private By button = new By.ByXPath("//button[@aria-label='Increase indent']");
 
     public WYSPage(WebDriver driver){
         this.driver=driver;
@@ -26,6 +27,14 @@ public class WYSPage {
         exitFrame();
     }
 
+    public void clickButton(){
+        driver.findElement(button).click();
+    }
+
+    public String getTextFromFrame(){
+        enterFrame();
+        return driver.findElement(textArea).getText();
+    }
 
     private void enterFrame(){
         driver.switchTo().frame(frame);
