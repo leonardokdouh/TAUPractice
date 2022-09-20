@@ -15,7 +15,7 @@ public class ContextAlert extends BaseTests {
     public void contextClickTest() throws InterruptedException {
         var contextPage = homePage.clickContextMenu();
         contextPage.contextRightClick();
-        Assert.assertEquals(contextPage.acceptAlert(), "You selected a context menu");
+        Assert.assertEquals(contextPage.acceptAlert(), "You selected a context aaaaaa");
     }
 
 }

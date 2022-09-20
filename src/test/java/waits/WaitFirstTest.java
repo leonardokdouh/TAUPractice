@@ -12,7 +12,7 @@ public class WaitFirstTest extends BaseTests {
         var firstDynam = homePage.clickDynamicLoading().firstLink();
         firstDynam.clickButton();
 
-        Assert.assertEquals(firstDynam.returnLoadingText(), "Hello World!");
+        Assert.assertEquals(firstDynam.returnLoadingText(), "Hello Wor!");
 
 
 
